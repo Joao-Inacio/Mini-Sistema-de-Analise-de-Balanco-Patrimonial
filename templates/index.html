@@ -17,7 +17,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <!-- Bootstrap fim -->
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
 
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="logo.png" width="50" height="35" alt="Orçamento pessoal">
+                <img src="./img/logo.png" width="50" height="35" alt="Orçamento pessoal">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,77 +51,45 @@
             </div>
         </div>
     </nav>
-    <form action="/add_despesa" method="POST">
+    <form method="POST">
         <div class="container">
             <div class="row">
                 <div class="col mb-5">
                     <h1 class="display-4">Registro de nova despesa</h1>
                 </div>
             </div>
-
+            {{ form.hidden_tag() }}
             <div class="row mb-2">
                 <div class="col-md-2">
-                    <select class="form-control" id="ano" required>
-                        <option value="">Ano</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                    </select>
+                    {{ form.ano.label }} {{ form.ano() }}
                 </div>
 
                 <div class="col-md-2">
-                    <select class="form-control" id="mes" required>
-                        <option value="">Mês</option>
-                        <option value="01">Janeiro</option>
-                        <option value="02">Fevereiro</option>
-                        <option value="03">Março</option>
-                        <option value="04">Abril</option>
-                        <option value="05">Maio</option>
-                        <option value="06">Junho</option>
-                        <option value="07">Julho</option>
-                        <option value="08">Agosto</option>
-                        <option value="09">Setembro</option>
-                        <option value="10">Outubro</option>
-                        <option value="11">Novembro</option>
-                        <option value="12">Dezembro</option>
-                    </select>
+                    {{ form.mes.label }} {{ form.mes() }}
                 </div>
 
                 <div class="col-md-2">
-                    <input type="text" class="form-control" placeholder="Dia" id="dia" required />
+                    {{ form.dia.label }} {{ form.dia() }}
                 </div>
 
                 <div class="col-md-6">
-                    <select class="form-control" id="tipo" required>
-                        <option value="">Tipo</option>
-                        <option value="1">Alimentação</option>
-                        <option value="2">Educação</option>
-                        <option value="3">Lazer</option>
-                        <option value="4">Saúde</option>
-                        <option value="5">Transporte</option>
-                    </select>
+                    {{ form.tipo.label }} {{ form.tipo() }}
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Descrição" id="descricao" />
+                    {{ form.descricao.label }} {{ form.descricao() }}
                 </div>
 
                 <div class="col-md-2">
-                    <input type="text" class="form-control" placeholder="Valor" id="valor" required/>
+                    {{ form.valor.label }} {{ form.valor() }}
                 </div>
                 <div class="col-md-2">
-                    <select class="form-control" id="prioridade" required>
-                        <option value="">Prioridade</option>
-                        <option value="alta">Alta</option>
-                        <option value="media">Média</option>
-                        <option value="baixa">Baixa</option>
-                    </select>
+                    {{ form.prioridade.label }} {{ form.prioridade() }}
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
-                    <button type="button" class="btn btn-dark" onclick="cadastrarDespesa()">
-                        <i class="fas fa-plus"></i>
-                    </button>
+                    <input type="submit" value="Registrar">
                 </div>
             </div>
         </div>
